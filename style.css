@@ -1,0 +1,167 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f5f9; /* slate-100 */
+}
+
+/* --- Landing Page Styles --- */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #2563eb; /* blue-600 */
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    text-decoration: none;
+}
+.cta-button:hover {
+    background-color: #1d4ed8; /* blue-700 */
+    transform: translateY(-2px);
+}
+
+.cta-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e3a8a; /* blue-800 */
+    background-color: white;
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.cta-button-secondary:hover {
+    background-color: #f9fafb; /* gray-50 */
+    transform: translateY(-2px);
+}
+
+/* --- Dashboard Styles --- */
+.dashboard-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.trend-arrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.trend-up { background-color: #fecaca; color: #b91c1c; }
+.trend-down { background-color: #d1fae5; color: #065f46; }
+.trend-stable { background-color: #e5e7eb; color: #374151; }
+.trend-uturn { background-color: #fee2e2; color: #991b1b; }
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+}
+.filter-btn.active {
+    background-color: #1e40af;
+    color: white;
+    border-color: #1e40af;
+}
+.filter-btn.concerns {
+    border-color: #d97706;
+    color: #92400e;
+}
+.filter-btn.concerns.active {
+    background-color: #d97706;
+    color: white;
+    border-color: #d97706;
+}
+.data-row {
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 500px;
+    width: 90%;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+.log-entry {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+.analysis-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+}
+.good-point {
+    background-color: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    padding: 0.75rem;
+}
+.improvement-point {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 0.75rem;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #1f2937;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

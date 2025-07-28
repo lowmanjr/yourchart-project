@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Health Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <header class="mb-8">
+             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Health Dashboard</h1>
+                    <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle logs.</p>
+                </div>
+                <a href="index.html" class="cta-button mt-4 sm:mt-0">
+                    Build Your Own Dashboard
+                </a>
+            </div>
+        </header>
+
+        <!-- Profile & Key Metrics -->
+        <section class="dashboard-card mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">Profile & Key Metrics</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <p class="text-sm text-slate-500">Age</p>
+                    <p id="age" class="text-2xl font-semibold text-slate-700">--</p>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500">Height</p>
+                    <p class="text-2xl font-semibold text-slate-700">6' 3"</p>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500">Current Weight</p>
+                    <p class="text-2xl font-semibold text-slate-700">190 lbs</p>
+                </div>
+                <div>
+                    <div class="tooltip">
+                        <p class="text-sm text-slate-500">BMI <span class="text-xs bg-slate-200 rounded-full px-1.5 py-0.5 cursor-help">?</span></p>
+                        <span class="tooltiptext">Body Mass Index (BMI) is a measure of body fat based on height and weight. It's a general screening tool, not a diagnostic one.</span>
+                    </div>
+                    <p id="bmi" class="text-2xl font-semibold text-slate-700">--</p>
+                    <p class="text-xs text-slate-400">(Healthy: 18.5-24.9)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 1: Data Table Section -->
+        <section class="dashboard-card mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 1: Your Health Story</h2>
+            <p class="text-slate-600 mb-6">This dashboard shows your historical and current biomarker data. Click any row for more details.</p>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
+                <h3 class="text-xl font-semibold text-slate-700">6-Year Trend Dashboard</h3>
+                <div id="filter-container" class="flex items-center gap-2 flex-wrap">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="cardiovascular">Cardiovascular</button>
+                    <button class="filter-btn" data-filter="metabolic">Metabolic</button>
+                    <button class="filter-btn" data-filter="general">General</button>
+                    <button class="filter-btn concerns" data-filter="bad-metrics">Latest Concerns</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left min-w-[800px]">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-slate-600">Test Name</th>
+                            <th class="p-4 text-center font-semibold text-slate-600">Apr 2019</th>
+                            <th class="p-4 text-center font-semibold text-slate-600">Jun 2022</th>
+                            <th class="p-4 text-center font-semibold text-slate-600">Aug 2023</th>
+                            <th class="p-4 text-center font-semibold text-slate-600">Jun 2025</th>
+                            <th class="p-4 font-semibold text-slate-600">Normal Range</th>
+                            <th class="p-4 font-semibold text-slate-600">6-Year Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody id="health-data-table"></tbody>
+                </table>
+            </div>
+            
+            <!-- NEW: Analysis and Recommendations Section -->
+            <div class="mt-8 pt-8 border-t border-slate-200">
+                <h3 class="text-xl font-semibold text-slate-700 mb-4">Analysis & Recommendations</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Analysis -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-slate-700 mb-2">Readout of Your Lab Results</h4>
+                        <div class="space-y-3 text-slate-600 text-sm">
+                            <p>Your multi-year data tells a clear story with two main themes: a persistent challenge with cholesterol and a proven track record of success in metabolic health.</p>
+                            <p><strong>The Primary Challenge</strong> is your LDL ("bad") cholesterol, which has been consistently high since 2019 and has slowly increased over time. This is the most important area to focus on.</p>
+                            <p><strong>A Critical Clue</strong> is the "U-Turn" of your HDL ("good") cholesterol. It significantly improved from 2019 to 2023, proving it's responsive to lifestyle, but has since dropped. This suggests a change in habits during that period.</p>
+                            <p><strong>A Major Success</strong> is your metabolic health. You successfully managed your blood sugar from a prediabetic state to a healthy range, and your triglycerides are excellent. This shows your ability to make impactful, positive changes.</p>
+                        </div>
+                    </div>
+                    <!-- Recommendations -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-slate-700 mb-2">General Tips for Improvement</h4>
+                        <div class="space-y-3 text-slate-600 text-sm">
+                            <p>The goals are to lower LDL and raise HDL. Here are the most effective strategies:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Reduce Saturated Fat:</strong> This is the #1 priority for lowering LDL. Minimize red meat, processed meats (like sausage), full-fat dairy, and tropical oils (coconut, palm oil).</li>
+                                <li><strong>Eliminate Added Sugars:</strong> This is key for liver health and can impact LDL production. Watch for sugar in beverages, sauces, and processed foods.</li>
+                                <li><strong>Increase Soluble Fiber:</strong> This actively removes cholesterol. Prioritize oats, beans, apples, and brussels sprouts.</li>
+                                <li><strong>Prioritize Aerobic Exercise:</strong> Consistent cardio (brisk walking, jogging, swimming) is one of the best ways to raise your "good" HDL cholesterol.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2: Action Plan -->
+        <section class="dashboard-card">
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 2: Lifestyle Log & Optimization</h2>
+            <p class="text-slate-600 mb-6">Log your sleep, meals, and exercise here to get an analysis of how they align with your health goals.</p>
+            
+            <!-- Sleep Log -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-700 mb-4">Sleep Log</h3>
+                <div id="sleep-log-container"></div>
+            </div>
+
+            <!-- Meal Log -->
+            <div>
+                <h3 class="text-xl font-semibold text-slate-700 mb-4">Meal Log</h3>
+                <div id="meal-log-container"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="metric-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modal-title" class="text-2xl font-bold text-slate-800 mb-4">Metric Details</h2>
+            <div class="space-y-4">
+                <div><h3 class="font-semibold text-slate-700">What It Is:</h3><p id="modal-description" class="text-slate-600 text-sm"></p></div>
+                <div><h3 class="font-semibold text-slate-700">Common Factors That Influence It:</h3><p id="modal-factors" class="text-slate-600 text-sm"></p></div>
+                <div><h3 class="font-semibold text-slate-700">Example Insight:</h3><p id="modal-insight" class="text-slate-600 text-sm bg-blue-50 p-3 rounded-lg"></p></div>
+            </div>
+            <button id="modal-close-btn" class="mt-6 w-full bg-blue-700 text-white font-semibold py-2 rounded-lg hover:bg-blue-800 transition-colors">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
