@@ -13,7 +13,6 @@
 <body class="p-4 sm:p-6 md:p-8">
 
     <div class="max-w-7xl mx-auto">
-        <!-- Header -->
         <header class="mb-8">
              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                 <div>
@@ -26,10 +25,9 @@
             </div>
         </header>
 
-        <!-- Profile & Key Metrics -->
         <section class="dashboard-card mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Profile & Key Metrics</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 text-center">
                 <div>
                     <p class="text-sm text-slate-500">Age</p>
                     <p id="age" class="text-2xl font-semibold text-slate-700">--</p>
@@ -40,23 +38,45 @@
                 </div>
                 <div>
                     <p class="text-sm text-slate-500">Current Weight</p>
-                    <p class="text-2xl font-semibold text-slate-700">190 lbs</p>
+                    <p id="current-weight" class="text-2xl font-semibold text-slate-700">-- lbs</p>
+                    <p id="weight-trend" class="text-xs font-semibold"></p>
                 </div>
                 <div>
                     <div class="tooltip">
                         <p class="text-sm text-slate-500">BMI <span class="text-xs bg-slate-200 rounded-full px-1.5 py-0.5 cursor-help">?</span></p>
-                        <span class="tooltiptext">Body Mass Index (BMI) is a measure of body fat based on height and weight. It's a general screening tool, not a diagnostic one.</span>
+                        <span class="tooltiptext">Body Mass Index (BMI) is a measure of body fat based on height and weight. It's a general screening tool.</span>
                     </div>
                     <p id="bmi" class="text-2xl font-semibold text-slate-700">--</p>
                     <p class="text-xs text-slate-400">(Healthy: 18.5-24.9)</p>
                 </div>
+                <div>
+                    <div class="tooltip">
+                        <p class="text-sm text-slate-500">Avg. Sleep <span class="text-xs bg-slate-200 rounded-full px-1.5 py-0.5 cursor-help">?</span></p>
+                        <span class="tooltiptext">The average sleep duration calculated from your logged entries. 7-9 hours is generally recommended for adults.</span>
+                    </div>
+                    <p id="avg-sleep" class="text-2xl font-semibold text-slate-700">-- hrs</p>
+                </div>
+                <div>
+                    <div class="tooltip">
+                        <p class="text-sm text-slate-500">SpO2 <span class="text-xs bg-slate-200 rounded-full px-1.5 py-0.5 cursor-help">?</span></p>
+                        <span class="tooltiptext">Blood oxygen saturation (SpO2) measures the percentage of oxygen in your blood.</span>
+                    </div>
+                    <p id="spo2" class="text-2xl font-semibold text-slate-700">-- %</p>
+                    <p class="text-xs text-slate-400">(Normal: 95-100%)</p>
+                </div>
+                <div>
+                    <div class="tooltip">
+                        <p class="text-sm text-slate-500">Pulse Rate <span class="text-xs bg-slate-200 rounded-full px-1.5 py-0.5 cursor-help">?</span></p>
+                        <span class="tooltiptext">Your pulse rate, measured in beats per minute (BPM). A normal resting heart rate is 60-100 BPM.</span>
+                    </div>
+                    <p id="pulse-rate" class="text-2xl font-semibold text-slate-700">-- BPM</p>
+                </div>
             </div>
         </section>
-
-        <!-- Phase 1: Data Table Section -->
+        
         <section class="dashboard-card mb-8">
-            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 1: Your Health Story</h2>
-            <p class="text-slate-600 mb-6">This dashboard shows your historical and current biomarker data. Click any row for more details.</p>
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 1: My Health Story</h2>
+            <p class="text-slate-600 mb-6">This dashboard shows my historical and current biomarker data. Click any row for more details.</p>
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
                 <h3 class="text-xl font-semibold text-slate-700">6-Year Trend Dashboard</h3>
                 <div id="filter-container" class="flex items-center gap-2 flex-wrap">
@@ -84,11 +104,9 @@
                 </table>
             </div>
             
-            <!-- NEW: Analysis and Recommendations Section -->
             <div class="mt-8 pt-8 border-t border-slate-200">
                 <h3 class="text-xl font-semibold text-slate-700 mb-4">Analysis & Recommendations</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Analysis -->
                     <div>
                         <h4 class="text-lg font-semibold text-slate-700 mb-2">Readout of Your Lab Results</h4>
                         <div class="space-y-3 text-slate-600 text-sm">
@@ -98,7 +116,6 @@
                             <p><strong>A Major Success</strong> is your metabolic health. You successfully managed your blood sugar from a prediabetic state to a healthy range, and your triglycerides are excellent. This shows your ability to make impactful, positive changes.</p>
                         </div>
                     </div>
-                    <!-- Recommendations -->
                     <div>
                         <h4 class="text-lg font-semibold text-slate-700 mb-2">General Tips for Improvement</h4>
                         <div class="space-y-3 text-slate-600 text-sm">
@@ -115,26 +132,14 @@
             </div>
         </section>
 
-        <!-- Phase 2: Action Plan -->
         <section class="dashboard-card">
-            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 2: Lifestyle Log & Optimization</h2>
-            <p class="text-slate-600 mb-6">Log your sleep, meals, and exercise here to get an analysis of how they align with your health goals.</p>
-            
-            <!-- Sleep Log -->
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold text-slate-700 mb-4">Sleep Log</h3>
-                <div id="sleep-log-container"></div>
-            </div>
-
-            <!-- Meal Log -->
-            <div>
-                <h3 class="text-xl font-semibold text-slate-700 mb-4">Meal Log</h3>
-                <div id="meal-log-container"></div>
-            </div>
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 2: Daily Log</h2>
+            <p class="text-slate-600 mb-6">A day-by-day log of your meals and exercise. Click any day to expand or collapse its details.</p>
+            <div id="daily-log-container" class="space-y-4">
+                </div>
         </section>
     </div>
 
-    <!-- Modal Structure -->
     <div id="metric-modal" class="modal-overlay">
         <div class="modal-content">
             <h2 id="modal-title" class="text-2xl font-bold text-slate-800 mb-4">Metric Details</h2>

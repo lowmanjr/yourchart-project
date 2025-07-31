@@ -2,8 +2,20 @@
 const userProfile = {
     birthDate: "1992-12-22",
     heightInches: 75, // 6' 3"
-    weightLbs: 190
 };
+
+const weightLog = [
+    { date: "2025-07-28", weight: 190 },
+    { date: "2025-07-29", weight: 185 },
+    { date: "2025-07-30", weight: 186 },
+    { date: "2025-07-31", weight: 186.6 }
+];
+
+const pulseOxLog = [
+    { date: "2025-07-29", spo2: 95, pulseRate: 66 },
+    { date: "2025-07-30", spo2: 97, pulseRate: 50 },
+    { date: "2025-07-31", spo2: 97, pulseRate: 61 }
+];
 
 // --- LAB DATA ---
 const healthData = [
@@ -21,49 +33,43 @@ const healthData = [
 
 // --- LIFESTYLE LOG DATA ---
 const sleepLog = [
-    {
-        date: "Night of July 27, 2025",
-        duration: "8.5 hours",
-        details: "Bedtime at 9:30 PM, woke up at 6:00 AM.",
-        analysis: {
-            good: "Getting 8.5 hours of sleep is fantastic for recovery, hormone regulation, and managing stress, all of which can indirectly influence cardiovascular health. A consistent sleep schedule is a powerful tool for improvement."
-        }
-    }
+    { date: "2025-07-30", wakeDate: "2025-07-31", duration: 8.0 },
+    { date: "2025-07-29", wakeDate: "2025-07-30", duration: 8.0 },
+    { date: "2025-07-28", wakeDate: "2025-07-29", duration: 7.5 },
+    { date: "2025-07-27", wakeDate: "2025-07-28", duration: 8.5 }
 ];
 
+const dailyMeals = {
+    breakfast: { type: "Breakfast", name: "Breakfast Smoothie", ingredients: "Berries, kale, vanilla protein, psyllium, skim milk, chia seeds, greek yogurt, almond butter, avocado, oats, carrots.", analysis: { good: "This is a fantastic meal. It's packed with soluble fiber (oats, chia, psyllium) and healthy monounsaturated fats (avocado, almond butter), which is ideal for lowering LDL and raising HDL.", improvements: [{ title: "The Protein Powder", text: "The vanilla-flavored protein powder is a daily source of added sugar (5g per serving)." }, { title: "The Greek Yogurt", text: "Ensure it's *plain* Greek yogurt, as flavored versions are high in sugar." }], optimizations: ["Switch to an unflavored protein powder.", "Ensure you're using plain, unsweetened Greek yogurt." ] } },
+    snack1: { type: "Snack", name: "Bowl of Oats", ingredients: "Greek yogurt, almond butter, psyllium husk, vanilla protein powder, oats.", analysis: { good: "An excellent snack, high in soluble fiber from oats and psyllium husk to help lower LDL. The Greek yogurt and almond butter add valuable protein and healthy fats.", improvements: [{ title: "The Protein Powder", text: "The vanilla-flavored protein powder is a daily source of added sugar (5g per serving)." }], optimizations: [ "Switch to an unflavored protein powder to eliminate the added sugar." ] } },
+    snack2: { type: "Snack", name: "Canned Fish", ingredients: "Sardines or Salmon in Olive Oil, Salt.", analysis: { good: "An A+ choice. Oily fish is a powerhouse of anti-inflammatory omega-3 fatty acids, which are excellent for raising HDL. They are also high in protein and calcium with zero added sugar.", improvements: [], optimizations: ["Keep this as a regular staple in your diet."] } },
+    snack3: { type: "Snack", name: "Low Fat Cottage Cheese", ingredients: "Daisy Low Fat Cottage Cheese (1/2 serving).", analysis: { good: "This is a very good snack choice. It's high in protein which is great for satiety, has zero added sugar, and is made with simple, clean ingredients.", improvements: [{ title: "Saturated Fat Content", text: "A full serving has 1.5g of saturated fat. While your half-serving is very low (0.75g), it's a small trade-off for the creamy texture." }], optimizations: ["This is a solid choice. For a slightly more optimized option, non-fat plain Greek yogurt offers similar protein with 0g of saturated fat." ] } }
+};
+
 const mealLog = [
-     {
-        date: "Breakfast - July 28, 2025",
-        name: "Breakfast Smoothie",
-        ingredients: "Frozen fruit, kale, Naked vanilla protein powder, psyllium husk, skim milk, chia seeds, greek yogurt, almond butter, Trader Joe's oats, carrots.",
-        analysis: {
-            good: "This is a fantastic meal. It's packed with soluble fiber from the oats, chia seeds, and psyllium husk, which is ideal for lowering LDL. The fruits, vegetables, and almond butter add healthy fats and micronutrients.",
-            improvements: [
-                { title: "The Protein Powder", text: "The vanilla-flavored protein powder is a daily source of added sugar (5g per serving). Switching to an unflavored version is an easy optimization." },
-                { title: "The Greek Yogurt", text: "This is a great addition for protein. However, be sure it's *plain* Greek yogurt. Flavored versions (like vanilla or honey) can be very high in added sugar, which would work against your goals." }
-            ],
-            optimizations: [
-                "Switch to an unflavored protein powder.",
-                "Ensure you're using plain, unsweetened Greek yogurt."
-            ]
-        }
-    },
-    {
-        date: "Dinner - July 27 & 29, 2025",
-        name: "Honey Glaze Salmon Sheet Pan",
-        ingredients: "Salmon, broccoli, potatoes, olive oil, lemon, butter substitute, honey.",
-        analysis: {
-            good: "The foundation of this meal is excellent. Salmon provides healthy omega-3 fats, while broccoli and potatoes offer essential fiber and nutrients.",
-            improvements: [
-                { title: "The Butter Substitute", text: "The chosen butter substitute is high in saturated fat (3g/tbsp) due to its palm oil base. The ¼ cup in the recipe adds a significant amount of the exact fat we are trying to reduce to lower LDL." },
-                { title: "The Honey Glaze", text: "The 2 tablespoons of honey add a substantial amount of sugar (~34g) to the dish. This can negatively impact the liver and contribute to LDL production." }
-            ],
-            optimizations: [
-                "<strong>Eliminate the butter substitute entirely.</strong> Use 2-3 tbsp of olive oil for the whole dish instead.",
-                "<strong>Replace the honey glaze.</strong> Rub the salmon with minced garlic, fresh herbs, and a squeeze of lemon to get great flavor without the added sugar."
-            ]
-        }
-    }
+    // July 31
+    { date: "2025-07-31", ...dailyMeals.breakfast }, { date: "2025-07-31", ...dailyMeals.snack1 }, { date: "2025-07-31", ...dailyMeals.snack2 },
+    { date: "2025-07-31", type: "Lunch", name: "Pasta with Chicken (Leftovers)", ingredients: "Brown Rice/Quinoa Pasta, Caro Sugo Sauce, Chunk Chicken, Panko Breadcrumbs, Parmesan Cheese.", analysis: { good: "The foundation of this meal is excellent: whole-grain pasta, lean chicken, and a no-sugar-added sauce.", improvements: [{ title: "The Toppings", text: "Panko is a refined carb with low fiber. Using a 'good bit' of Parmesan can significantly increase the meal's saturated fat content."}], optimizations: ["Use Panko sparingly for texture, not as a main component.", "Treat Parmesan as a garnish (1-2 tbsp) to get the flavor without a large saturated fat impact."] } },
+    // July 30
+    { date: "2025-07-30", ...dailyMeals.breakfast }, { date: "2025-07-30", ...dailyMeals.snack1 }, { date: "2025-07-30", ...dailyMeals.snack2 }, { date: "2025-07-30", ...dailyMeals.snack3 },
+    { date: "2025-07-30", type: "Dinner", name: "Pasta with Chicken", ingredients: "Brown Rice/Quinoa Pasta, Caro Sugo Sauce, Chunk Chicken, Panko Breadcrumbs, Parmesan Cheese.", analysis: { good: "The foundation of this meal is excellent: whole-grain pasta, lean chicken, and a no-sugar-added sauce.", improvements: [{ title: "The Toppings", text: "Panko is a refined carb with low fiber. Using a 'good bit' of Parmesan can significantly increase the meal's saturated fat content."}], optimizations: ["Use Panko sparingly for texture, not as a main component.", "Treat Parmesan as a garnish (1-2 tbsp) to get the flavor without a large saturated fat impact."] } },
+    // July 29
+    { date: "2025-07-29", ...dailyMeals.breakfast }, { date: "2025-07-29", ...dailyMeals.snack1 }, { date: "2025-07-29", ...dailyMeals.snack2 }, { date: "2025-07-29", ...dailyMeals.snack3 },
+    { date: "2025-07-29", type: "Dinner", name: "Pasta with Chicken", ingredients: "Brown Rice/Quinoa Pasta, Caro Sugo Sauce, Chunk Chicken, Panko Breadcrumbs, Parmesan Cheese.", analysis: { good: "The foundation of this meal is excellent: whole-grain pasta, lean chicken, and a no-sugar-added sauce.", improvements: [{ title: "The Toppings", text: "Panko is a refined carb with low fiber. Using a 'good bit' of Parmesan can significantly increase the meal's saturated fat content."}], optimizations: ["Use Panko sparingly for texture, not as a main component.", "Treat Parmesan as a garnish (1-2 tbsp) to get the flavor without a large saturated fat impact."] } },
+    // July 28
+    { date: "2025-07-28", ...dailyMeals.breakfast }, { date: "2025-07-28", ...dailyMeals.snack1 }, { date: "2025-07-28", ...dailyMeals.snack2 }, { date: "2025-07-28", ...dailyMeals.snack3 },
+    { date: "2025-07-28", type: "Dinner", name: "Honey Glaze Salmon Sheet Pan", ingredients: "Salmon, broccoli, potatoes, olive oil, lemon, butter substitute, honey.", analysis: { good: "The foundation of this meal is excellent. Salmon provides healthy omega-3 fats, while broccoli and potatoes offer essential fiber and nutrients.", improvements: [{ title: "The Butter Substitute", text: "The chosen butter substitute is high in saturated fat (3g/tbsp) due to its palm oil base, working against the goal of lowering LDL." }, { title: "The Honey Glaze", text: "The 2 tablespoons of honey add a substantial amount of sugar (~34g) to the dish." }], optimizations: ["<strong>Eliminate the butter substitute entirely.</strong> Use 2-3 tbsp of olive oil instead.", "<strong>Replace the honey glaze.</strong> Use minced garlic, fresh herbs, and lemon for flavor." ] } },
+    // July 27
+    { date: "2025-07-27", ...dailyMeals.breakfast }, { date: "2025-07-27", ...dailyMeals.snack1 }, { date: "2025-07-27", ...dailyMeals.snack2 }, { date: "2025-07-27", ...dailyMeals.snack3 },
+    { date: "2025-07-27", type: "Dinner", name: "Honey Glaze Salmon Sheet Pan", ingredients: "Salmon, broccoli, potatoes, olive oil, lemon, butter substitute, honey.", analysis: { good: "The foundation of this meal is excellent. Salmon provides healthy omega-3 fats, while broccoli and potatoes offer essential fiber and nutrients.", improvements: [{ title: "The Butter Substitute", text: "The chosen butter substitute is high in saturated fat (3g/tbsp) due to its palm oil base, working against the goal of lowering LDL." }, { title: "The Honey Glaze", text: "The 2 tablespoons of honey add a substantial amount of sugar (~34g) to the dish." }], optimizations: ["<strong>Eliminate the butter substitute entirely.</strong> Use 2-3 tbsp of olive oil instead.", "<strong>Replace the honey glaze.</strong> Use minced garlic, fresh herbs, and lemon for flavor." ] } }
+];
+
+const exerciseLog = [
+    { date: "2025-07-31", activity: "Swimming Laps", duration: "1 hour", details: "Consistent pace, approximately 1 mile.", analysis: { good: "Excellent choice for cardiovascular health. Swimming is a full-body, low-impact aerobic exercise that is highly effective for improving heart health and raising 'good' HDL cholesterol." } },
+    { date: "2025-07-30", activity: "Hot Yoga", duration: "1 hour", details: "Vinyasa flow session.", analysis: { good: "Excellent for flexibility, strength, and stress reduction. Managing stress is an important component of overall cardiovascular health." } },
+    { date: "2025-07-29", activity: "Gym Workout", duration: "1 hour", details: "Lower body resistance training.", analysis: { good: "A great session. Resistance training is excellent for building muscle, which boosts metabolism and improves insulin sensitivity. This perfectly complements your cardio work." } },
+    { date: "2025-07-28", activity: "Swimming Laps", duration: "1 hour", details: "Approximately 1 mile.", analysis: { good: "Excellent choice for cardiovascular health. Swimming is a full-body, low-impact aerobic exercise that is highly effective for improving heart health and raising 'good' HDL cholesterol." } },
+    { date: "2025-07-27", activity: "Gym Workout", duration: "1 hour", details: "Upper body resistance training (biceps and triceps).", analysis: { good: "Great for building and maintaining muscle mass, which is important for a healthy metabolism. A good complement to your lower body and cardio days." } }
 ];
 
 // --- DOM ELEMENTS ---
@@ -75,10 +81,14 @@ const modalDescription = document.getElementById('modal-description');
 const modalFactors = document.getElementById('modal-factors');
 const modalInsight = document.getElementById('modal-insight');
 const modalCloseBtn = document.getElementById('modal-close-btn');
-const mealLogContainer = document.getElementById('meal-log-container');
-const sleepLogContainer = document.getElementById('sleep-log-container');
+const dailyLogContainer = document.getElementById('daily-log-container');
 const ageEl = document.getElementById('age');
 const bmiEl = document.getElementById('bmi');
+const currentWeightEl = document.getElementById('current-weight');
+const spo2El = document.getElementById('spo2');
+const pulseRateEl = document.getElementById('pulse-rate');
+const weightTrendEl = document.getElementById('weight-trend');
+const avgSleepEl = document.getElementById('avg-sleep');
 
 // --- FUNCTIONS ---
 
@@ -99,8 +109,27 @@ function calculateBMI(weightLbs, heightInches) {
 }
 
 function renderProfile() {
+    const latestWeight = weightLog[weightLog.length - 1].weight;
+    const firstWeight = weightLog[0].weight;
+    const weightChange = latestWeight - firstWeight;
+    const latestPulseOx = pulseOxLog[pulseOxLog.length - 1];
+    
+    const totalSleep = sleepLog.reduce((acc, log) => acc + log.duration, 0);
+    const avgSleep = (totalSleep / sleepLog.length).toFixed(1);
+
     if (ageEl) ageEl.textContent = calculateAge(userProfile.birthDate);
-    if (bmiEl) bmiEl.textContent = calculateBMI(userProfile.weightLbs, userProfile.heightInches);
+    if (currentWeightEl) currentWeightEl.textContent = `${latestWeight} lbs`;
+    if (bmiEl) bmiEl.textContent = calculateBMI(latestWeight, userProfile.heightInches);
+    if (avgSleepEl) avgSleepEl.textContent = `${avgSleep} hrs`;
+    if (spo2El) spo2El.textContent = `${latestPulseOx.spo2} %`;
+    if (pulseRateEl) pulseRateEl.textContent = `${latestPulseOx.pulseRate} BPM`;
+
+    if (weightTrendEl && weightChange !== 0) {
+        const trendSymbol = weightChange < 0 ? '↓' : '↑';
+        const trendColor = weightChange < 0 ? 'text-green-600' : 'text-red-600';
+        weightTrendEl.className = `text-xs font-semibold ${trendColor}`;
+        weightTrendEl.innerHTML = `<span>${trendSymbol} ${Math.abs(weightChange).toFixed(1)} lbs</span>`;
+    }
 }
 
 function renderTable(filter = 'all') {
@@ -129,54 +158,72 @@ function renderTable(filter = 'all') {
     });
 }
 
-function renderSleepLog() {
-    if (!sleepLogContainer) return;
-    sleepLogContainer.innerHTML = '';
-    sleepLog.forEach(log => {
-        const entry = document.createElement('div');
-        entry.className = 'log-entry';
-        entry.innerHTML = `
-            <div class="flex justify-between items-center">
-                <h4 class="text-lg font-semibold text-slate-800">${log.date}</h4>
-                <p class="text-sm font-medium text-slate-500">Total Duration: ${log.duration}</p>
-            </div>
-            <p class="text-sm text-slate-600 mt-1"><strong>Details:</strong> ${log.details}</p>
-            <div class="analysis-section">
-                <h5 class="font-semibold text-slate-700 mb-2">Analysis</h5>
-                <div class="good-point">
-                    <p class="font-semibold text-green-800">✅ Excellent Duration & Consistency</p>
-                    <p class="text-sm text-green-700">${log.analysis.good}</p>
+function renderDailyLogs() {
+    if (!dailyLogContainer) return;
+    
+    const logsByDate = {};
+    
+    mealLog.forEach(log => {
+        const date = log.date;
+        if (!logsByDate[date]) logsByDate[date] = { meals: [], exercise: [] };
+        logsByDate[date].meals.push(log);
+    });
+
+    exerciseLog.forEach(log => {
+        const date = log.date;
+        if (!logsByDate[date]) logsByDate[date] = { meals: [], exercise: [] };
+        logsByDate[date].exercise.push(log);
+    });
+
+    const sortedDates = Object.keys(logsByDate).sort((a, b) => new Date(b) - new Date(a));
+    
+    dailyLogContainer.innerHTML = '';
+    
+    sortedDates.forEach(date => {
+        const dayData = logsByDate[date];
+        const dayCard = document.createElement('div');
+        dayCard.className = 'border border-slate-200 rounded-lg';
+
+        const exerciseSummary = dayData.exercise.length > 0 ? `${dayData.exercise[0].activity}` : 'Rest Day';
+        const mealCount = dayData.meals.length;
+
+        let mealHtml = dayData.meals.map(meal => {
+             let improvementsHtml = meal.analysis.improvements.map(imp => `<div class="improvement-point"><p class="font-semibold text-amber-800">⚠️ Room for Improvement: ${imp.title}</p><p class="text-sm text-amber-700">${imp.text}</p></div>`).join('');
+             let optimizationsHtml = meal.analysis.optimizations.map(opt => `<li>${opt}</li>`).join('');
+             return `<div class="log-entry"><div class="flex justify-between items-center"><h3 class="text-lg font-semibold text-slate-800">${meal.name}</h3><p class="text-sm font-medium text-slate-500">${meal.type}</p></div><p class="text-sm text-slate-600 mt-1"><strong>Ingredients:</strong> ${meal.ingredients}</p><div class="analysis-section"><div class="space-y-3"><div class="good-point"><p class="font-semibold text-green-800">✅ What's Great:</p><p class="text-sm text-green-700">${meal.analysis.good}</p></div>${improvementsHtml.length > 0 ? improvementsHtml : ''}<div><p class="font-semibold text-blue-800">💡 Optimization Plan:</p><ul class="list-disc list-inside text-sm text-blue-700 mt-1 space-y-1">${optimizationsHtml}</ul></div></div></div></div>`
+        }).join('');
+
+        let exerciseHtml = dayData.exercise.map(log => `<div class="log-entry"><div class="flex justify-between items-center"><h4 class="text-lg font-semibold text-slate-800">${log.activity}</h4><p class="text-sm font-medium text-slate-500">${log.duration}</p></div><p class="text-sm text-slate-600 mt-1"><strong>Details:</strong> ${log.details}</p><div class="analysis-section"><div class="good-point"><p class="font-semibold text-green-800">✅ Analysis</p><p class="text-sm text-green-700">${log.analysis.good}</p></div></div></div>`).join('');
+
+        dayCard.innerHTML = `
+            <div class="day-card-header p-4 flex justify-between items-center">
+                <h3 class="text-xl font-semibold text-slate-800">${new Date(date + "T00:00:00").toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</h3>
+                <div class="flex items-center gap-4 text-sm text-slate-500">
+                    <span>🍽️ ${mealCount} Meals</span>
+                    <span>💪 ${exerciseSummary}</span>
+                    <svg class="w-5 h-5 chevron-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-            </div>`;
-        sleepLogContainer.appendChild(entry);
+            </div>
+            <div class="day-card-details border-t border-slate-200">
+                <div class="p-4">
+                    ${mealHtml}
+                    ${exerciseHtml}
+                </div>
+            </div>
+        `;
+        dailyLogContainer.appendChild(dayCard);
+    });
+
+    document.querySelectorAll('.day-card-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const details = header.nextElementSibling;
+            const icon = header.querySelector('.chevron-icon');
+            details.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        });
     });
 }
 
-function renderMealLog() {
-    if (!mealLogContainer) return;
-    mealLogContainer.innerHTML = '';
-    mealLog.forEach(meal => {
-        const entry = document.createElement('div');
-        entry.className = 'log-entry';
-        let improvementsHtml = meal.analysis.improvements.map(imp => `<div class="improvement-point"><p class="font-semibold text-amber-800">⚠️ Room for Improvement: ${imp.title}</p><p class="text-sm text-amber-700">${imp.text}</p></div>`).join('');
-        let optimizationsHtml = meal.analysis.optimizations.map(opt => `<li>${opt}</li>`).join('');
-        entry.innerHTML = `
-            <div class="flex justify-between items-center">
-                <h3 class="text-xl font-semibold text-slate-800">${meal.name}</h3>
-                <p class="text-sm font-medium text-slate-500">${meal.date}</p>
-            </div>
-            <p class="text-sm text-slate-600 mt-1"><strong>Ingredients:</strong> ${meal.ingredients}</p>
-            <div class="analysis-section">
-                <h4 class="font-semibold text-slate-700 mb-2">Analysis & Optimization Plan</h4>
-                <div class="space-y-3">
-                    <div class="good-point"><p class="font-semibold text-green-800">✅ What's Great:</p><p class="text-sm text-green-700">${meal.analysis.good}</p></div>
-                    ${improvementsHtml}
-                    <div><p class="font-semibold text-blue-800">💡 Optimization Plan for Next Time:</p><ul class="list-disc list-inside text-sm text-blue-700 mt-1 space-y-1">${optimizationsHtml}</ul></div>
-                </div>
-            </div>`;
-        mealLogContainer.appendChild(entry);
-    });
-}
 
 function showModal(item) {
     modalTitle.textContent = item.name;
@@ -191,13 +238,11 @@ function hideModal() {
 }
 
 // --- INITIALIZATION ---
-// This runs when the page loads. It checks if it's the dashboard page before running dashboard-specific code.
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('health-data-table')) {
         renderProfile();
         renderTable();
-        renderSleepLog();
-        renderMealLog();
+        renderDailyLogs();
 
         filterContainer.addEventListener('click', (e) => {
             if (e.target.tagName === 'BUTTON') {
