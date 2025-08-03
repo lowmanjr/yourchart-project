@@ -76,18 +76,7 @@
         
         <section class="dashboard-card mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 1: My Health Story</h2>
-            <p class="text-slate-600 mb-6">This dashboard shows my historical and current biomarker data. Click any row for more details.</p>
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-                <h3 class="text-xl font-semibold text-slate-700">6-Year Trend Dashboard</h3>
-                <div id="filter-container" class="flex items-center gap-2 flex-wrap">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="cardiovascular">Cardiovascular</button>
-                    <button class="filter-btn" data-filter="metabolic">Metabolic</button>
-                    <button class="filter-btn" data-filter="general">General</button>
-                    <button class="filter-btn concerns" data-filter="bad-metrics">Latest Concerns</button>
-                </div>
-            </div>
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto mt-6">
                 <table class="w-full text-left min-w-[800px]">
                     <thead class="bg-slate-50">
                         <tr>
@@ -103,40 +92,89 @@
                     <tbody id="health-data-table"></tbody>
                 </table>
             </div>
-            
             <div class="mt-8 pt-8 border-t border-slate-200">
-                <h3 class="text-xl font-semibold text-slate-700 mb-4">Analysis & Recommendations</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-lg font-semibold text-slate-700 mb-2">Readout of Your Lab Results</h4>
-                        <div class="space-y-3 text-slate-600 text-sm">
-                            <p>Your multi-year data tells a clear story with two main themes: a persistent challenge with cholesterol and a proven track record of success in metabolic health.</p>
-                            <p><strong>The Primary Challenge</strong> is your LDL ("bad") cholesterol, which has been consistently high since 2019 and has slowly increased over time. This is the most important area to focus on.</p>
-                            <p><strong>A Critical Clue</strong> is the "U-Turn" of your HDL ("good") cholesterol. It significantly improved from 2019 to 2023, proving it's responsive to lifestyle, but has since dropped. This suggests a change in habits during that period.</p>
-                            <p><strong>A Major Success</strong> is your metabolic health. You successfully managed your blood sugar from a prediabetic state to a healthy range, and your triglycerides are excellent. This shows your ability to make impactful, positive changes.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-semibold text-slate-700 mb-2">General Tips for Improvement</h4>
-                        <div class="space-y-3 text-slate-600 text-sm">
-                            <p>The goals are to lower LDL and raise HDL. Here are the most effective strategies:</p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li><strong>Reduce Saturated Fat:</strong> This is the #1 priority for lowering LDL. Minimize red meat, processed meats (like sausage), full-fat dairy, and tropical oils (coconut, palm oil).</li>
-                                <li><strong>Eliminate Added Sugars:</strong> This is key for liver health and can impact LDL production. Watch for sugar in beverages, sauces, and processed foods.</li>
-                                <li><strong>Increase Soluble Fiber:</strong> This actively removes cholesterol. Prioritize oats, beans, apples, and brussels sprouts.</li>
-                                <li><strong>Prioritize Aerobic Exercise:</strong> Consistent cardio (brisk walking, jogging, swimming) is one of the best ways to raise your "good" HDL cholesterol.</li>
-                            </ul>
-                        </div>
-                    </div>
+                <h3 class="text-xl font-semibold text-slate-700 mb-2">My Lab Readout</h3>
+                <div class="space-y-3 text-slate-600 text-sm">
+                    <p>Your multi-year data tells a clear story with two main themes: a persistent challenge with cholesterol and a proven track record of success in metabolic health.</p>
+                    <p><strong>The Primary Challenge</strong> is your LDL ("bad") cholesterol, which has been consistently high since 2019 and has slowly increased over time. This is the most important area to focus on.</p>
+                    <p><strong>A Critical Clue</strong> is the "U-Turn" of your HDL ("good") cholesterol. It significantly improved from 2019 to 2023, proving it's responsive to lifestyle, but has since dropped. This suggests a change in habits during that period.</p>
+                    <p><strong>A Major Success</strong> is your metabolic health. You successfully managed your blood sugar from a prediabetic state to a healthy range, and your triglycerides are excellent. This shows your ability to make impactful, positive changes.</p>
                 </div>
             </div>
         </section>
 
+        <section class="dashboard-card mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">My Health Goals</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="habit-card ok"><h3 class="habit-title">🎯 Lower LDL & ApoB</h3><p class="habit-text">Reduce the amount of "bad" cholesterol particles in the blood through diet and exercise.</p></div>
+                <div class="habit-card good"><h3 class="habit-title">🎯 Raise HDL</h3><p class="habit-text">Increase the "good" cholesterol that helps clear out the bad kind, primarily through healthy fats and cardio.</p></div>
+                <div class="habit-card good"><h3 class="habit-title">🎯 Maintain Metabolic Health</h3><p class="habit-text">Continue the excellent blood sugar control and low triglycerides you've already achieved.</p></div>
+                <div class="habit-card good"><h3 class="habit-title">🎯 Continue Weight Trend</h3><p class="habit-text">Build on the initial positive downward trend in weight.</p></div>
+            </div>
+        </section>
+
         <section class="dashboard-card">
-            <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 2: Daily Log</h2>
-            <p class="text-slate-600 mb-6">A day-by-day log of your meals and exercise. Click any day to expand or collapse its details.</p>
-            <div id="daily-log-container" class="space-y-4">
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Daily Habits & Optimization Plan</h2>
+            <p class="text-slate-600 mb-6">This is your current baseline of daily habits. The goal is to move items from the "Consider Optimizing" and "Eliminate" categories into the "Keep Doing" category over time.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="habit-card good">
+                    <h3 class="habit-title">✅ Keep Doing (The Good Habits)</h3>
+                    <ul class="habit-list">
+                        <li><strong>Daily Smoothie:</strong> Packed with fiber (berries, greens, oats, psyllium) and healthy fats (avocado, almond butter).</li>
+                        <li><strong>Daily Snacks:</strong> High-fiber oats, high-protein Greek yogurt & cottage cheese, and omega-3 rich sardines are all excellent choices.</li>
+                        <li><strong>Dinner Foundation:</strong> Using lean proteins (salmon, chicken, lean ground turkey) and whole-grain pasta as a base is perfect.</li>
+                        <li><strong>Consistent Exercise:</strong> A great mix of cardio (swimming, yoga) for HDL and resistance training for metabolic health.</li>
+                    </ul>
                 </div>
+                <div class="habit-card ok">
+                    <h3 class="habit-title">🤔 Consider Optimizing (The OK Habits)</h3>
+                     <ul class="habit-list">
+                        <li><strong>Flavored Protein Powder:</strong> It's low in saturated fat, but the 5g of added sugar is a small, daily factor. <strong>Optimization:</strong> Switch to an unflavored version.</li>
+                        <li><strong>Parmesan Cheese:</strong> Adds great flavor, but can be a source of saturated fat if the portion is large. <strong>Optimization:</strong> Use it as a garnish (1-2 tbsp), not a primary ingredient.</li>
+                        <li><strong>Panko Breadcrumbs:</strong> Low in fat/sugar, but it's a refined carb with little fiber. <strong>Optimization:</strong> Use sparingly for texture on baked foods.</li>
+                        <li><strong>Lean Steak:</strong> A good source of protein and iron, but even lean cuts have more saturated fat than chicken or fish. <strong>Optimization:</strong> Enjoy as an occasional meal.</li>
+                    </ul>
+                </div>
+                <div class="habit-card bad">
+                    <h3 class="habit-title">❌ Eliminate (The Bad Habits)</h3>
+                     <ul class="habit-list">
+                        <li><strong>Coconut/Palm Oil Butters:</strong> These are major hidden sources of saturated fat that directly raise LDL. <strong>Optimization:</strong> Eliminate completely. Cook with olive or avocado oil instead.</li>
+                        <li><strong>Sugary Sauces (Honey Glaze, etc.):</strong> These are sources of concentrated added sugar that can negatively impact cholesterol. <strong>Optimization:</strong> Replace with homemade versions using herbs, spices, and lemon.</li>
+                        <li><strong>Processed Meats (e.g., Sausage):</strong> Even poultry versions are often high in saturated fat and sodium. <strong>Optimization:</strong> Swap for whole, unprocessed chicken or fish.</li>
+                        <li><strong>Fast Food (Wraps, Dressings):</strong> Often extremely high in saturated fat, sodium, and sugar, even when they sound healthy. <strong>Optimization:</strong> Best to avoid entirely.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 mb-1">Exercise Habits & Optimization Plan</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                    <div class="habit-card good">
+                        <h3 class="habit-title">Foundation: Cardiovascular Exercise</h3>
+                        <ul class="habit-list">
+                            <li><strong>Your Activities:</strong> Swimming, Hot Yoga, Biking.</li>
+                            <li><strong>Why It's Key:</strong> Consistent aerobic exercise is the single most effective way to raise your "good" HDL cholesterol. It also helps with weight management and overall heart health.</li>
+                            <li><strong>Goal:</strong> Aim for 3-5 sessions per week, lasting 30-60 minutes each.</li>
+                        </ul>
+                    </div>
+                    <div class="habit-card good">
+                        <h3 class="habit-title">Complement: Resistance Training</h3>
+                         <ul class="habit-list">
+                            <li><strong>Your Activities:</strong> Upper and lower body gym workouts.</li>
+                            <li><strong>Why It's Key:</strong> Building and maintaining muscle improves your body's metabolic health and how it processes sugar and fat, which can indirectly help lower LDL.</li>
+                            <li><strong>Goal:</strong> Aim for 2 full-body sessions per week, or continue your upper/lower split.</li>
+                        </ul>
+                    </div>
+                    <div class="habit-card ok">
+                        <h3 class="habit-title">💡 Optimization Strategy</h3>
+                         <ul class="habit-list">
+                            <li><strong>Focus on "Zone 2":</strong> For at least 2 cardio sessions a week, aim for a "Zone 2" intensity—a pace where you can still hold a conversation. This is the optimal zone for building aerobic endurance and improving mitochondrial health.</li>
+                            <li><strong>Consistency Over Intensity:</strong> The most important factor is consistency. Hitting 4 workouts a week at a moderate intensity is far better than one extremely intense workout that leaves you too sore to train again.</li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
