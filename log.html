@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Health Log</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Detailed Health Log</h1>
+                    <p class="text-slate-500 mt-1">A chronological record of all logged lifestyle data.</p>
+                </div>
+                <a href="dashboard.html" class="cta-button mt-4 sm:mt-0">
+                    &larr; Back to Dashboard
+                </a>
+            </div>
+        </header>
+        
+        <section class="dashboard-card mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">Weight Trend</h2>
+            <div>
+                <canvas id="weightChart"></canvas>
+            </div>
+        </section>
+
+        <div id="daily-log-container" class="space-y-4">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

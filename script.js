@@ -8,7 +8,8 @@ const weightLog = [
     { date: "2025-07-28", weight: 190 },
     { date: "2025-07-29", weight: 185 },
     { date: "2025-07-30", weight: 186 },
-    { date: "2025-07-31", weight: 186.6 }
+    { date: "2025-07-31", weight: 186.6 },
+    { date: "2025-08-07", weight: 186.6 }
 ];
 
 const pulseOxLog = [
@@ -18,7 +19,10 @@ const pulseOxLog = [
 ];
 
 const sleepLog = [
-    { duration: 8.0 }, { duration: 8.0 }, { duration: 7.5 }, { duration: 8.5 }
+    { date: "2025-07-27", wakeDate: "2025-07-28", duration: 8.5, details: "Bedtime at 9:30 PM, woke up at 6:00 AM." },
+    { date: "2025-07-28", wakeDate: "2025-07-29", duration: 7.5, details: "Bedtime at 9:00 PM, woke up at 4:30 AM." },
+    { date: "2025-07-29", wakeDate: "2025-07-30", duration: 8.0, details: "Bedtime at 9:00 PM, woke up at 5:00 AM." },
+    { date: "2025-07-30", wakeDate: "2025-07-31", duration: 8.0, details: "Bedtime at 9:00 PM, woke up at 5:00 AM." }
 ];
 
 // --- LAB DATA ---
@@ -35,6 +39,40 @@ const healthData = [
     { category: 'general', name: 'WBC Count', values: [3.6, 4.2, 4.2, 3.7], isHigh: [true, false, false, true], range: '3.8 - 10.6', trend: 'stable', description: 'White Blood Cell count. These cells are the core of your immune system, fighting infection.', factors: 'Can be low due to viral infections, certain medications, or autoimmune conditions. Can also be a normal variant for some individuals.', insight: 'The WBC count has consistently been on the low end of normal or just below. This may just be a personal baseline.' }
 ];
 
+// --- LIFESTYLE LOG DATA (Corrected Dates) ---
+const dailyMeals = {
+    breakfast: { type: "Breakfast", name: "Breakfast Smoothie", ingredients: "Berries, kale, vanilla protein, psyllium, skim milk, chia seeds, greek yogurt, almond butter, avocado, oats, carrots.", analysis: { good: "This is a fantastic meal. It's packed with soluble fiber (oats, chia, psyllium) and healthy monounsaturated fats (avocado, almond butter), which is ideal for lowering LDL and raising HDL.", improvements: [{ title: "The Protein Powder", text: "The vanilla-flavored protein powder is a daily source of added sugar (5g per serving)." }, { title: "The Greek Yogurt", text: "Ensure it's *plain* Greek yogurt, as flavored versions are high in sugar." }], optimizations: ["Switch to an unflavored protein powder.", "Ensure you're using plain, unsweetened Greek yogurt." ] } },
+    snack1: { type: "Snack", name: "Bowl of Oats", ingredients: "Greek yogurt, almond butter, psyllium husk, vanilla protein powder, oats.", analysis: { good: "An excellent snack, high in soluble fiber from oats and psyllium husk to help lower LDL. The Greek yogurt and almond butter add valuable protein and healthy fats.", improvements: [{ title: "The Protein Powder", text: "The vanilla-flavored protein powder is a daily source of added sugar (5g per serving)." }], optimizations: [ "Switch to an unflavored protein powder to eliminate the added sugar." ] } },
+    snack2: { type: "Snack", name: "Canned Fish", ingredients: "Sardines or Salmon in Olive Oil, Salt.", analysis: { good: "An A+ choice. Oily fish is a powerhouse of anti-inflammatory omega-3 fatty acids, which are excellent for raising HDL. They are also high in protein and calcium with zero added sugar.", improvements: [], optimizations: ["Keep this as a regular staple in your diet."] } },
+    snack3: { type: "Snack", name: "Low Fat Cottage Cheese", ingredients: "Daisy Low Fat Cottage Cheese (1/2 serving).", analysis: { good: "This is a very good snack choice. It's high in protein which is great for satiety, has zero added sugar, and is made with simple, clean ingredients.", improvements: [{ title: "Saturated Fat Content", text: "A full serving has 1.5g of saturated fat. While your half-serving is very low (0.75g), it's a small trade-off for the creamy texture." }], optimizations: ["This is a solid choice. For a slightly more optimized option, non-fat plain Greek yogurt offers similar protein with 0g of saturated fat." ] } }
+};
+
+const mealLog = [
+    // July 31
+    { date: "2025-07-31", ...dailyMeals.breakfast }, { date: "2025-07-31", ...dailyMeals.snack1 }, { date: "2025-07-31", ...dailyMeals.snack2 },
+    { date: "2025-07-31", type: "Lunch", name: "Pasta with Chicken (Leftovers)", ingredients: "Brown Rice/Quinoa Pasta, Caro Sugo Sauce, Chunk Chicken, Panko Breadcrumbs, Parmesan Cheese.", analysis: { good: "The foundation of this meal is excellent: whole-grain pasta, lean chicken, and a no-sugar-added sauce.", improvements: [{ title: "The Toppings", text: "Panko is a refined carb with low fiber. Using a 'good bit' of Parmesan can significantly increase the meal's saturated fat content."}], optimizations: ["Use Panko sparingly for texture, not as a main component.", "Treat Parmesan as a garnish (1-2 tbsp) to get the flavor without a large saturated fat impact."] } },
+    { date: "2025-07-31", type: "Dinner", name: "Chick-fil-A Cool Wrap & Dressing", ingredients: "Cool Wrap, Fat-Free Honey Mustard Dressing.", analysis: { good: "The wrap is high in protein (43g), which is beneficial for satiety.", improvements: [{ title: "High Saturated Fat", text: "The wrap contains 9g of saturated fat (45% of DV), which is very high and works directly against the goal of lowering LDL cholesterol." }, { title: "Extremely High Sodium", text: "The combined meal has over 1750mg of sodium, more than 75% of the recommended daily limit." }, { title: "High Sugar in Dressing", text: "The 'fat-free' dressing contains 18g of sugar, which can negatively impact liver function and cholesterol production." } ], optimizations: ["This meal should be avoided. A homemade wrap with grilled chicken and a simple vinaigrette would be a much healthier alternative."] } },
+    // July 30
+    { date: "2025-07-30", ...dailyMeals.breakfast }, { date: "2025-07-30", ...dailyMeals.snack1 }, { date: "2025-07-30", ...dailyMeals.snack2 }, { date: "2025-07-30", ...dailyMeals.snack3 },
+    { date: "2025-07-30", type: "Dinner", name: "Pasta with Chicken", ingredients: "Brown Rice/Quinoa Pasta, Caro Sugo Sauce, Chunk Chicken, Panko Breadcrumbs, Parmesan Cheese.", analysis: { good: "The foundation of this meal is excellent: whole-grain pasta, lean chicken, and a no-sugar-added sauce.", improvements: [{ title: "The Toppings", text: "Panko is a refined carb with low fiber. Using a 'good bit' of Parmesan can significantly increase the meal's saturated fat content."}], optimizations: ["Use Panko sparingly for texture, not as a main component.", "Treat Parmesan as a garnish (1-2 tbsp) to get the flavor without a large saturated fat impact."] } },
+    // July 29
+    { date: "2025-07-29", ...dailyMeals.breakfast }, { date: "2025-07-29", ...dailyMeals.snack1 }, { date: "2025-07-29", ...dailyMeals.snack2 }, { date: "2025-07-29", ...dailyMeals.snack3 },
+    { date: "2025-07-29", type: "Dinner", name: "Pasta with Chicken", ingredients: "Brown Rice/Quinoa Pasta, Caro Sugo Sauce, Chunk Chicken, Panko Breadcrumbs, Parmesan Cheese.", analysis: { good: "The foundation of this meal is excellent: whole-grain pasta, lean chicken, and a no-sugar-added sauce.", improvements: [{ title: "The Toppings", text: "Panko is a refined carb with low fiber. Using a 'good bit' of Parmesan can significantly increase the meal's saturated fat content."}], optimizations: ["Use Panko sparingly for texture, not as a main component.", "Treat Parmesan as a garnish (1-2 tbsp) to get the flavor without a large saturated fat impact."] } },
+    // July 28
+    { date: "2025-07-28", ...dailyMeals.breakfast }, { date: "2025-07-28", ...dailyMeals.snack1 }, { date: "2025-07-28", ...dailyMeals.snack2 }, { date: "2025-07-28", ...dailyMeals.snack3 },
+    { date: "2025-07-28", type: "Dinner", name: "Honey Glaze Salmon Sheet Pan", ingredients: "Salmon, broccoli, potatoes, olive oil, lemon, butter substitute, honey.", analysis: { good: "The foundation of this meal is excellent. Salmon provides healthy omega-3 fats, while broccoli and potatoes offer essential fiber and nutrients.", improvements: [{ title: "The Butter Substitute", text: "The chosen butter substitute is high in saturated fat (3g/tbsp) due to its palm oil base, working against the goal of lowering LDL." }, { title: "The Honey Glaze", text: "The 2 tablespoons of honey add a substantial amount of sugar (~34g) to the dish." }], optimizations: ["<strong>Eliminate the butter substitute entirely.</strong> Use 2-3 tbsp of olive oil instead.", "<strong>Replace the honey glaze.</strong> Use minced garlic, fresh herbs, and lemon for flavor." ] } },
+    // July 27
+    { date: "2025-07-27", ...dailyMeals.breakfast }, { date: "2025-07-27", ...dailyMeals.snack1 }, { date: "2025-07-27", ...dailyMeals.snack2 }, { date: "2025-07-27", ...dailyMeals.snack3 },
+    { date: "2025-07-27", type: "Dinner", name: "Honey Glaze Salmon Sheet Pan", ingredients: "Salmon, broccoli, potatoes, olive oil, lemon, butter substitute, honey.", analysis: { good: "The foundation of this meal is excellent. Salmon provides healthy omega-3 fats, while broccoli and potatoes offer essential fiber and nutrients.", improvements: [{ title: "The Butter Substitute", text: "The chosen butter substitute is high in saturated fat (3g/tbsp) due to its palm oil base, working against the goal of lowering LDL." }, { title: "The Honey Glaze", text: "The 2 tablespoons of honey add a substantial amount of sugar (~34g) to the dish." }], optimizations: ["<strong>Eliminate the butter substitute entirely.</strong> Use 2-3 tbsp of olive oil instead.", "<strong>Replace the honey glaze.</strong> Use minced garlic, fresh herbs, and lemon for flavor." ] } }
+];
+
+const exerciseLog = [
+    { date: "2025-07-30", activity: "Hot Yoga", duration: "1 hour", details: "Vinyasa flow session.", analysis: { good: "Excellent for flexibility, strength, and stress reduction. Managing stress is an important component of overall cardiovascular health." } },
+    { date: "2025-07-29", activity: "Gym Workout", duration: "1 hour", details: "Lower body resistance training.", analysis: { good: "A great session. Resistance training is excellent for building muscle, which boosts metabolism and improves insulin sensitivity. This perfectly complements your cardio work." } },
+    { date: "2025-07-28", activity: "Swimming Laps", duration: "1 hour", details: "Approximately 1 mile.", analysis: { good: "Excellent choice for cardiovascular health. Swimming is a full-body, low-impact aerobic exercise that is highly effective for improving heart health and raising 'good' HDL cholesterol." } },
+    { date: "2025-07-27", activity: "Gym Workout", duration: "1 hour", details: "Upper body resistance training (biceps and triceps).", analysis: { good: "Great for building and maintaining muscle mass, which is important for a healthy metabolism. A good complement to your lower body and cardio days." } }
+];
+
 // --- DOM ELEMENTS ---
 const tableBody = document.getElementById('health-data-table');
 const filterContainer = document.getElementById('filter-container');
@@ -44,6 +82,7 @@ const modalDescription = document.getElementById('modal-description');
 const modalFactors = document.getElementById('modal-factors');
 const modalInsight = document.getElementById('modal-insight');
 const modalCloseBtn = document.getElementById('modal-close-btn');
+const dailyLogContainer = document.getElementById('daily-log-container');
 const ageEl = document.getElementById('age');
 const bmiEl = document.getElementById('bmi');
 const currentWeightEl = document.getElementById('current-weight');
@@ -51,6 +90,7 @@ const spo2El = document.getElementById('spo2');
 const pulseRateEl = document.getElementById('pulse-rate');
 const weightTrendEl = document.getElementById('weight-trend');
 const avgSleepEl = document.getElementById('avg-sleep');
+const weightChartCanvas = document.getElementById('weightChart');
 
 // --- FUNCTIONS ---
 
@@ -91,6 +131,8 @@ function renderProfile() {
         const trendColor = weightChange < 0 ? 'text-green-600' : 'text-red-600';
         weightTrendEl.className = `text-xs font-semibold ${trendColor}`;
         weightTrendEl.innerHTML = `<span>${trendSymbol} ${Math.abs(weightChange).toFixed(1)} lbs</span>`;
+    } else if (weightTrendEl) {
+        weightTrendEl.innerHTML = '';
     }
 }
 
@@ -120,6 +162,112 @@ function renderTable(filter = 'all') {
     });
 }
 
+function renderDailyLogs() {
+    if (!dailyLogContainer) return;
+    
+    const logsByDate = {};
+    
+    sleepLog.forEach(log => {
+        const date = log.wakeDate; 
+        if (!logsByDate[date]) logsByDate[date] = { sleep: [], meals: [], exercise: [] };
+        logsByDate[date].sleep.push(log);
+    });
+    
+    mealLog.forEach(log => {
+        const date = log.date;
+        if (!logsByDate[date]) logsByDate[date] = { sleep: [], meals: [], exercise: [] };
+        logsByDate[date].meals.push(log);
+    });
+
+    exerciseLog.forEach(log => {
+        const date = log.date;
+        if (!logsByDate[date]) logsByDate[date] = { sleep: [], meals: [], exercise: [] };
+        logsByDate[date].exercise.push(log);
+    });
+
+    const sortedDates = Object.keys(logsByDate).sort((a, b) => new Date(b) - new Date(a));
+    
+    dailyLogContainer.innerHTML = '';
+    
+    sortedDates.forEach(date => {
+        const dayData = logsByDate[date];
+        const dayCard = document.createElement('div');
+        dayCard.className = 'border border-slate-200 rounded-lg';
+
+        const sleepSummary = dayData.sleep.length > 0 ? `${dayData.sleep[0].duration} hrs` : 'No Sleep Logged';
+        const exerciseSummary = dayData.exercise.length > 0 ? `${dayData.exercise[0].activity}` : 'Rest Day';
+        const mealCount = dayData.meals.length;
+
+        let sleepHtml = dayData.sleep.map(log => `<div class="log-entry"><div class="flex justify-between items-center"><h4 class="text-lg font-semibold text-slate-800">Sleep</h4><p class="text-sm font-medium text-slate-500">${log.duration} hours</p></div><p class="text-sm text-slate-600 mt-1"><strong>Details:</strong> ${log.details}</p><div class="analysis-section"><div class="good-point"><p class="font-semibold text-green-800">✅ Analysis</p><p class="text-sm text-green-700">A solid sleep duration is great for health and recovery.</p></div></div></div>`).join('');
+        
+        let mealHtml = dayData.meals.map(meal => {
+             let improvementsHtml = meal.analysis.improvements.map(imp => `<div class="improvement-point"><p class="font-semibold text-amber-800">⚠️ Room for Improvement: ${imp.title}</p><p class="text-sm text-amber-700">${imp.text}</p></div>`).join('');
+             let optimizationsHtml = meal.analysis.optimizations.map(opt => `<li>${opt}</li>`).join('');
+             return `<div class="log-entry"><div class="flex justify-between items-center"><h3 class="text-lg font-semibold text-slate-800">${meal.name}</h3><p class="text-sm font-medium text-slate-500">${meal.type}</p></div><p class="text-sm text-slate-600 mt-1"><strong>Ingredients:</strong> ${meal.ingredients}</p><div class="analysis-section"><div class="space-y-3"><div class="good-point"><p class="font-semibold text-green-800">✅ What's Great:</p><p class="text-sm text-green-700">${meal.analysis.good}</p></div>${improvementsHtml.length > 0 ? improvementsHtml : ''}<div><p class="font-semibold text-blue-800">💡 Optimization Plan:</p><ul class="list-disc list-inside text-sm text-blue-700 mt-1 space-y-1">${optimizationsHtml}</ul></div></div></div></div>`
+        }).join('');
+
+        let exerciseHtml = dayData.exercise.map(log => `<div class="log-entry"><div class="flex justify-between items-center"><h4 class="text-lg font-semibold text-slate-800">${log.activity}</h4><p class="text-sm font-medium text-slate-500">${log.duration}</p></div><p class="text-sm text-slate-600 mt-1"><strong>Details:</strong> ${log.details}</p><div class="analysis-section"><div class="good-point"><p class="font-semibold text-green-800">✅ Analysis</p><p class="text-sm text-green-700">${log.analysis.good}</p></div></div></div>`).join('');
+
+        dayCard.innerHTML = `
+            <div class="day-card-header p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <h3 class="text-xl font-semibold text-slate-800">${new Date(date + "T12:00:00").toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</h3>
+                <div class="flex items-center gap-4 text-sm text-slate-500 mt-2 sm:mt-0">
+                    <span>🌙 ${sleepSummary}</span>
+                    <span>🍽️ ${mealCount} Meals</span>
+                    <span>💪 ${exerciseSummary}</span>
+                    <svg class="w-5 h-5 chevron-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
+            <div class="day-card-details border-t border-slate-200">
+                <div class="p-4">
+                    ${sleepHtml}
+                    ${mealHtml}
+                    ${exerciseHtml}
+                </div>
+            </div>
+        `;
+        dailyLogContainer.appendChild(dayCard);
+    });
+
+    document.querySelectorAll('.day-card-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const details = header.nextElementSibling;
+            const icon = header.querySelector('.chevron-icon');
+            details.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        });
+    });
+}
+
+function renderWeightChart() {
+    if (!weightChartCanvas) return;
+    const labels = weightLog.map(item => new Date(item.date + "T12:00:00").toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+    const dataPoints = weightLog.map(item => item.weight);
+
+    new Chart(weightChartCanvas, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Weight (lbs)',
+                data: dataPoints,
+                fill: false,
+                borderColor: '#2563eb',
+                tension: 0.1,
+                pointBackgroundColor: '#2563eb',
+                pointRadius: 5
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: false, title: { display: true, text: 'Weight (lbs)' } }
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
+}
+
+
 function showModal(item) {
     modalTitle.textContent = item.name;
     modalDescription.textContent = item.description || 'No description available.';
@@ -134,10 +282,11 @@ function hideModal() {
 
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
+    // Logic for Dashboard Page
     if (document.getElementById('health-data-table')) {
         renderProfile();
         renderTable();
-
+        
         filterContainer.addEventListener('click', (e) => {
             if (e.target.tagName === 'BUTTON') {
                 document.querySelector('.filter-btn.active').classList.remove('active');
@@ -148,5 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
         modalCloseBtn.addEventListener('click', hideModal);
+    }
+    
+    // Logic for Log Page
+    if (document.getElementById('daily-log-container')) {
+        renderWeightChart();
+        renderDailyLogs();
     }
 });

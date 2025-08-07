@@ -17,11 +17,14 @@
              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                 <div>
                     <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Health Dashboard</h1>
-                    <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle logs.</p>
+                    <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle plan.</p>
                 </div>
-                <a href="index.html" class="cta-button mt-4 sm:mt-0">
-                    Build Your Own Dashboard
-                </a>
+                <div class="flex items-center gap-4 mt-4 sm:mt-0">
+                    <a href="log.html" class="font-semibold text-blue-600 hover:underline">View Detailed Log</a>
+                    <a href="index.html" class="cta-button">
+                        Build Your Own
+                    </a>
+                </div>
             </div>
         </header>
 
@@ -76,7 +79,17 @@
         
         <section class="dashboard-card mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 1: My Health Story</h2>
-            <div class="overflow-x-auto mt-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 mt-6">
+                <h3 class="text-xl font-semibold text-slate-700">6-Year Trend Dashboard</h3>
+                <div id="filter-container" class="flex items-center gap-2 flex-wrap">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="cardiovascular">Cardiovascular</button>
+                    <button class="filter-btn" data-filter="metabolic">Metabolic</button>
+                    <button class="filter-btn" data-filter="general">General</button>
+                    <button class="filter-btn concerns" data-filter="bad-metrics">Latest Concerns</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
                 <table class="w-full text-left min-w-[800px]">
                     <thead class="bg-slate-50">
                         <tr>
@@ -113,8 +126,8 @@
             </div>
         </section>
 
-        <section class="dashboard-card">
-            <h2 class="text-2xl font-bold text-slate-800 mb-1">Daily Habits & Optimization Plan</h2>
+        <section class="dashboard-card mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Diet Habits & Optimization Plan</h2>
             <p class="text-slate-600 mb-6">This is your current baseline of daily habits. The goal is to move items from the "Consider Optimizing" and "Eliminate" categories into the "Keep Doing" category over time.</p>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -146,33 +159,33 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="mt-8 pt-8 border-t border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-800 mb-1">Exercise Habits & Optimization Plan</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
-                    <div class="habit-card good">
-                        <h3 class="habit-title">Foundation: Cardiovascular Exercise</h3>
-                        <ul class="habit-list">
-                            <li><strong>Your Activities:</strong> Swimming, Hot Yoga, Biking.</li>
-                            <li><strong>Why It's Key:</strong> Consistent aerobic exercise is the single most effective way to raise your "good" HDL cholesterol. It also helps with weight management and overall heart health.</li>
-                            <li><strong>Goal:</strong> Aim for 3-5 sessions per week, lasting 30-60 minutes each.</li>
-                        </ul>
-                    </div>
-                    <div class="habit-card good">
-                        <h3 class="habit-title">Complement: Resistance Training</h3>
-                         <ul class="habit-list">
-                            <li><strong>Your Activities:</strong> Upper and lower body gym workouts.</li>
-                            <li><strong>Why It's Key:</strong> Building and maintaining muscle improves your body's metabolic health and how it processes sugar and fat, which can indirectly help lower LDL.</li>
-                            <li><strong>Goal:</strong> Aim for 2 full-body sessions per week, or continue your upper/lower split.</li>
-                        </ul>
-                    </div>
-                    <div class="habit-card ok">
-                        <h3 class="habit-title">💡 Optimization Strategy</h3>
-                         <ul class="habit-list">
-                            <li><strong>Focus on "Zone 2":</strong> For at least 2 cardio sessions a week, aim for a "Zone 2" intensity—a pace where you can still hold a conversation. This is the optimal zone for building aerobic endurance and improving mitochondrial health.</li>
-                            <li><strong>Consistency Over Intensity:</strong> The most important factor is consistency. Hitting 4 workouts a week at a moderate intensity is far better than one extremely intense workout that leaves you too sore to train again.</li>
-                         </ul>
-                    </div>
+        </section>
+        
+        <section class="dashboard-card">
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Exercise Habits & Optimization Plan</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                <div class="habit-card good">
+                    <h3 class="habit-title">Foundation: Cardiovascular Exercise</h3>
+                    <ul class="habit-list">
+                        <li><strong>Your Activities:</strong> Swimming, Hot Yoga, Biking.</li>
+                        <li><strong>Why It's Key:</strong> Consistent aerobic exercise is the single most effective way to raise your "good" HDL cholesterol. It also helps with weight management and overall heart health.</li>
+                        <li><strong>Goal:</strong> Aim for 3-5 sessions per week, lasting 30-60 minutes each.</li>
+                    </ul>
+                </div>
+                <div class="habit-card good">
+                    <h3 class="habit-title">Complement: Resistance Training</h3>
+                     <ul class="habit-list">
+                        <li><strong>Your Activities:</strong> Upper and lower body gym workouts.</li>
+                        <li><strong>Why It's Key:</strong> Building and maintaining muscle improves your body's metabolic health and how it processes sugar and fat, which can indirectly help lower LDL.</li>
+                        <li><strong>Goal:</strong> Aim for 2 full-body sessions per week, or continue your upper/lower split.</li>
+                    </ul>
+                </div>
+                <div class="habit-card ok">
+                    <h3 class="habit-title">💡 Optimization Strategy</h3>
+                     <ul class="habit-list">
+                        <li><strong>Focus on "Zone 2":</strong> For at least 2 cardio sessions a week, aim for a "Zone 2" intensity—a pace where you can still hold a conversation. This is the optimal zone for building aerobic endurance and improving mitochondrial health.</li>
+                        <li><strong>Consistency Over Intensity:</strong> The most important factor is consistency. Hitting 4 workouts a week at a moderate intensity is far better than one extremely intense workout that leaves you too sore to train again.</li>
+                     </ul>
                 </div>
             </div>
         </section>
