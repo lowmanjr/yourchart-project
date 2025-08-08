@@ -340,7 +340,9 @@ async function main() {
 
         // Logic for Log Page
         if (dom.dailyLogContainer) {
-            renderWeightChart(data.weightLog);
+            // === LINE REMOVED ===
+            // renderWeightChart(data.weightLog); // This line has been removed.
+            // === END LINE REMOVED ===
             renderDailyLogs(data);
             setupLogListeners();
         }

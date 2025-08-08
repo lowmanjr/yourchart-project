@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourChart.net | Understand Your Health Data</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body class="bg-slate-50 flex items-center justify-center min-h-screen p-4">
-    <div class="max-w-2xl mx-auto text-center">
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>YourChart.net | Understand Your Health Data</title>
+    <meta name="description" content="Turn confusing lab results into a clear action plan. Track your biomarkers, understand the trends, and see how your lifestyle impacts your health.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourchart.net/">
+    <meta property="og:title" content="YourChart.net | Understand Your Health Data">
+    <meta property="og:description" content="Turn confusing lab results into a clear action plan.">
+    <meta property="og:image" content="https://yourchart.net/your-dashboard-screenshot.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourchart.net/">
+    <meta property="twitter:title" content="YourChart.net | Understand Your Health Data">
+    <meta property="twitter:description" content="Turn confusing lab results into a clear action plan.">
+    <meta property="twitter:image" content="https://yourchart.net/your-dashboard-screenshot.png">
+    </head>
+<body class="bg-slate-50 flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="max-w-2xl mx-auto text-center flex-grow flex flex-col justify-center">
         
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-800 tracking-tight">Your Lab Reports, Diagnosed with AI</h1>
         
@@ -20,7 +35,7 @@
             <p class="text-slate-600 mt-4 max-w-xl mx-auto">
                 I took my lab results and ran them through AI. I then started logging my diet and exercise habits to see where I could improve.
             </p>
-            <a href="dashboard.html" class="inline-flex items-center justify-center px-6 py-3 mt-6 font-semibold text-white bg-blue-600 rounded-lg shadow-md transition-all hover:bg-blue-700 hover:-translate-y-0.5">
+            <a href="dashboard.html" class="cta-button mt-6">
                 View My Results
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -35,12 +50,14 @@
             </p>
             <form name="waitlist" method="POST" data-netlify="true" action="/thank-you" class="flex flex-col sm:flex-row max-w-md mx-auto gap-3 mt-6">
                 <input type="email" name="email" class="w-full px-4 py-3 rounded-md text-slate-800 border-slate-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your email address" required>
-                <button type="submit" class="inline-flex items-center justify-center px-6 py-3 font-semibold text-blue-800 bg-white border border-slate-300 rounded-lg shadow-sm transition-all hover:bg-slate-50 hover:-translate-y-0.5">
-                    Join the Waitlist
-                </button>
+                <button type="submit" class="cta-button-secondary">Join the Waitlist</button>
             </form>
         </div>
 
     </div>
-</body>
+    
+    <footer class="text-center p-4 w-full text-sm text-slate-500">
+        © 2025 YourChart.net | <a href="index.html" class="hover:underline">Back to Home</a>
+    </footer>
+    </body>
 </html>
