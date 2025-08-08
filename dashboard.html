@@ -10,25 +10,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="p-4 sm:p-6 md:p-8">
+<body class="p-4 sm:p-6 md:p-8 bg-slate-100">
 
     <div class="max-w-7xl mx-auto">
         <header class="mb-8">
              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                <div>
-                    <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Health Dashboard</h1>
-                    <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle plan.</p>
-                </div>
-                <div class="flex items-center gap-4 mt-4 sm:mt-0">
-                    <a href="log.html" class="font-semibold text-blue-600 hover:underline">View Detailed Log</a>
-                    <a href="index.html" class="cta-button">
-                        Build Your Own
-                    </a>
-                </div>
-            </div>
+                 <div>
+                     <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Health Dashboard</h1>
+                     <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle plan.</p>
+                 </div>
+                 <div class="flex items-center gap-4 mt-4 sm:mt-0">
+                     <a href="log.html" class="font-semibold text-blue-600 hover:underline">View Detailed Log</a>
+                     <a href="index.html" class="inline-flex items-center justify-center px-5 py-2.5 font-semibold text-white bg-blue-600 rounded-lg shadow-sm transition-colors hover:bg-blue-700">
+                         Build Your Own
+                     </a>
+                 </div>
+             </div>
         </header>
 
-        <section class="dashboard-card mb-8">
+        <section class="bg-white rounded-lg p-6 shadow-sm mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Profile & Key Metrics</h2>
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 text-center">
                 <div>
@@ -77,7 +77,7 @@
             </div>
         </section>
         
-        <section class="dashboard-card mb-8">
+        <section class="bg-white rounded-lg p-6 shadow-sm mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-1">Phase 1: My Health Story</h2>
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 mt-6">
                 <h3 class="text-xl font-semibold text-slate-700">6-Year Trend Dashboard</h3>
@@ -102,12 +102,13 @@
                             <th class="p-4 font-semibold text-slate-600">6-Year Trend</th>
                         </tr>
                     </thead>
-                    <tbody id="health-data-table"></tbody>
+                    <tbody id="health-data-table">
+                        </tbody>
                 </table>
             </div>
             <div class="mt-8 pt-8 border-t border-slate-200">
                 <h3 class="text-xl font-semibold text-slate-700 mb-2">My Lab Readout</h3>
-                <div class="space-y-3 text-slate-600 text-sm">
+                <div class="space-y-3 text-slate-600 text-sm prose max-w-none">
                     <p>Your multi-year data tells a clear story with two main themes: a persistent challenge with cholesterol and a proven track record of success in metabolic health.</p>
                     <p><strong>The Primary Challenge</strong> is your LDL ("bad") cholesterol, which has been consistently high since 2019 and has slowly increased over time. This is the most important area to focus on.</p>
                     <p><strong>A Critical Clue</strong> is the "U-Turn" of your HDL ("good") cholesterol. It significantly improved from 2019 to 2023, proving it's responsive to lifestyle, but has since dropped. This suggests a change in habits during that period.</p>
@@ -116,7 +117,7 @@
             </div>
         </section>
 
-        <section class="dashboard-card mb-8">
+        <section class="bg-white rounded-lg p-6 shadow-sm mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">My Health Goals</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="habit-card ok"><h3 class="habit-title">🎯 Lower LDL & ApoB</h3><p class="habit-text">Reduce the amount of "bad" cholesterol particles in the blood through diet and exercise.</p></div>
@@ -126,7 +127,7 @@
             </div>
         </section>
 
-        <section class="dashboard-card mb-8">
+        <section class="bg-white rounded-lg p-6 shadow-sm mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-1">Diet Habits & Optimization Plan</h2>
             <p class="text-slate-600 mb-6">This is your current baseline of daily habits. The goal is to move items from the "Consider Optimizing" and "Eliminate" categories into the "Keep Doing" category over time.</p>
             
@@ -143,25 +144,25 @@
                 <div class="habit-card ok">
                     <h3 class="habit-title">🤔 Consider Optimizing (The OK Habits)</h3>
                      <ul class="habit-list">
-                        <li><strong>Flavored Protein Powder:</strong> It's low in saturated fat, but the 5g of added sugar is a small, daily factor. <strong>Optimization:</strong> Switch to an unflavored version.</li>
-                        <li><strong>Parmesan Cheese:</strong> Adds great flavor, but can be a source of saturated fat if the portion is large. <strong>Optimization:</strong> Use it as a garnish (1-2 tbsp), not a primary ingredient.</li>
-                        <li><strong>Panko Breadcrumbs:</strong> Low in fat/sugar, but it's a refined carb with little fiber. <strong>Optimization:</strong> Use sparingly for texture on baked foods.</li>
-                        <li><strong>Lean Steak:</strong> A good source of protein and iron, but even lean cuts have more saturated fat than chicken or fish. <strong>Optimization:</strong> Enjoy as an occasional meal.</li>
-                    </ul>
+                         <li><strong>Flavored Protein Powder:</strong> It's low in saturated fat, but the 5g of added sugar is a small, daily factor. <strong>Optimization:</strong> Switch to an unflavored version.</li>
+                         <li><strong>Parmesan Cheese:</strong> Adds great flavor, but can be a source of saturated fat if the portion is large. <strong>Optimization:</strong> Use it as a garnish (1-2 tbsp), not a primary ingredient.</li>
+                         <li><strong>Panko Breadcrumbs:</strong> Low in fat/sugar, but it's a refined carb with little fiber. <strong>Optimization:</strong> Use sparingly for texture on baked foods.</li>
+                         <li><strong>Lean Steak:</strong> A good source of protein and iron, but even lean cuts have more saturated fat than chicken or fish. <strong>Optimization:</strong> Enjoy as an occasional meal.</li>
+                     </ul>
                 </div>
                 <div class="habit-card bad">
                     <h3 class="habit-title">❌ Eliminate (The Bad Habits)</h3>
                      <ul class="habit-list">
-                        <li><strong>Coconut/Palm Oil Butters:</strong> These are major hidden sources of saturated fat that directly raise LDL. <strong>Optimization:</strong> Eliminate completely. Cook with olive or avocado oil instead.</li>
-                        <li><strong>Sugary Sauces (Honey Glaze, etc.):</strong> These are sources of concentrated added sugar that can negatively impact cholesterol. <strong>Optimization:</strong> Replace with homemade versions using herbs, spices, and lemon.</li>
-                        <li><strong>Processed Meats (e.g., Sausage):</strong> Even poultry versions are often high in saturated fat and sodium. <strong>Optimization:</strong> Swap for whole, unprocessed chicken or fish.</li>
-                        <li><strong>Fast Food (Wraps, Dressings):</strong> Often extremely high in saturated fat, sodium, and sugar, even when they sound healthy. <strong>Optimization:</strong> Best to avoid entirely.</li>
-                    </ul>
+                         <li><strong>Coconut/Palm Oil Butters:</strong> These are major hidden sources of saturated fat that directly raise LDL. <strong>Optimization:</strong> Eliminate completely. Cook with olive or avocado oil instead.</li>
+                         <li><strong>Sugary Sauces (Honey Glaze, etc.):</strong> These are sources of concentrated added sugar that can negatively impact cholesterol. <strong>Optimization:</strong> Replace with homemade versions using herbs, spices, and lemon.</li>
+                         <li><strong>Processed Meats (e.g., Sausage):</strong> Even poultry versions are often high in saturated fat and sodium. <strong>Optimization:</strong> Swap for whole, unprocessed chicken or fish.</li>
+                         <li><strong>Fast Food (Wraps, Dressings):</strong> Often extremely high in saturated fat, sodium, and sugar, even when they sound healthy. <strong>Optimization:</strong> Best to avoid entirely.</li>
+                     </ul>
                 </div>
             </div>
         </section>
         
-        <section class="dashboard-card">
+        <section class="bg-white rounded-lg p-6 shadow-sm">
             <h2 class="text-2xl font-bold text-slate-800 mb-1">Exercise Habits & Optimization Plan</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
                 <div class="habit-card good">
@@ -175,16 +176,16 @@
                 <div class="habit-card good">
                     <h3 class="habit-title">Complement: Resistance Training</h3>
                      <ul class="habit-list">
-                        <li><strong>Your Activities:</strong> Upper and lower body gym workouts.</li>
-                        <li><strong>Why It's Key:</strong> Building and maintaining muscle improves your body's metabolic health and how it processes sugar and fat, which can indirectly help lower LDL.</li>
-                        <li><strong>Goal:</strong> Aim for 2 full-body sessions per week, or continue your upper/lower split.</li>
-                    </ul>
+                         <li><strong>Your Activities:</strong> Upper and lower body gym workouts.</li>
+                         <li><strong>Why It's Key:</strong> Building and maintaining muscle improves your body's metabolic health and how it processes sugar and fat, which can indirectly help lower LDL.</li>
+                         <li><strong>Goal:</strong> Aim for 2 full-body sessions per week, or continue your upper/lower split.</li>
+                     </ul>
                 </div>
                 <div class="habit-card ok">
                     <h3 class="habit-title">💡 Optimization Strategy</h3>
                      <ul class="habit-list">
-                        <li><strong>Focus on "Zone 2":</strong> For at least 2 cardio sessions a week, aim for a "Zone 2" intensity—a pace where you can still hold a conversation. This is the optimal zone for building aerobic endurance and improving mitochondrial health.</li>
-                        <li><strong>Consistency Over Intensity:</strong> The most important factor is consistency. Hitting 4 workouts a week at a moderate intensity is far better than one extremely intense workout that leaves you too sore to train again.</li>
+                         <li><strong>Focus on "Zone 2":</strong> For at least 2 cardio sessions a week, aim for a "Zone 2" intensity—a pace where you can still hold a conversation. This is the optimal zone for building aerobic endurance and improving mitochondrial health.</li>
+                         <li><strong>Consistency Over Intensity:</strong> The most important factor is consistency. Hitting 4 workouts a week at a moderate intensity is far better than one extremely intense workout that leaves you too sore to train again.</li>
                      </ul>
                 </div>
             </div>
@@ -199,7 +200,7 @@
                 <div><h3 class="font-semibold text-slate-700">Common Factors That Influence It:</h3><p id="modal-factors" class="text-slate-600 text-sm"></p></div>
                 <div><h3 class="font-semibold text-slate-700">Example Insight:</h3><p id="modal-insight" class="text-slate-600 text-sm bg-blue-50 p-3 rounded-lg"></p></div>
             </div>
-            <button id="modal-close-btn" class="mt-6 w-full bg-blue-700 text-white font-semibold py-2 rounded-lg hover:bg-blue-800 transition-colors">Close</button>
+            <button id="modal-close-btn" class="mt-6 w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition-colors">Close</button>
         </div>
     </div>
 
