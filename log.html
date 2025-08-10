@@ -15,17 +15,23 @@
 <body class="p-4 sm:p-6 md:p-8">
 
     <div class="max-w-4xl mx-auto">
+        <!-- === UPDATED HEADER === -->
         <header class="mb-8">
-             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                 <div>
-                     <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Detailed Health Log</h1>
-                     <p class="text-slate-500 mt-1">A chronological record of all logged lifestyle data.</p>
-                 </div>
-                 <a href="dashboard.html" class="cta-button mt-4 sm:mt-0">
-                     &larr; Back to Dashboard
-                 </a>
-             </div>
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-slate-800 hover:opacity-80">YourChart.net</a>
+                <nav class="flex items-center gap-4 sm:gap-6 text-sm sm:text-base font-semibold">
+                    <a href="my-diet.html" class="text-slate-600 hover:text-blue-600">My Diet</a>
+                    <a href="dashboard.html" class="text-slate-600 hover:text-blue-600">Dashboard</a>
+                    <a href="log.html" class="text-slate-600 hover:text-blue-600">Log</a>
+                </nav>
+            </div>
         </header>
+        <!-- === END UPDATED HEADER === -->
+
+        <div class="text-center mb-8">
+             <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Detailed Health Log</h1>
+             <p class="text-slate-500 mt-1">A chronological record of all logged lifestyle data.</p>
+        </div>
         
         <div id="daily-log-container" class="space-y-4">
             <!-- Daily log accordions will be injected by script.js -->
@@ -41,7 +47,6 @@
             <a href="index.html" class="hover:underline">Back to Home</a>
             <span>|</span>
             <a href="https://x.com/jyanbrohnson_" target="_blank" title="Follow on X" class="hover:opacity-75">
-                <!-- X/Twitter SVG Icon -->
                 <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                     <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
                 </svg>

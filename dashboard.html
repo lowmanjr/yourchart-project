@@ -14,21 +14,23 @@
 <body class="p-4 sm:p-6 md:p-8">
 
     <div class="max-w-7xl mx-auto">
+        <!-- === UPDATED HEADER === -->
         <header class="mb-8">
-             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                 <div>
-                     <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Health Dashboard</h1>
-                     <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle plan.</p>
-                 </div>
-                 <div class="flex items-center gap-4 mt-4 sm:mt-0">
-                    <a href="my-diet.html" class="font-semibold text-blue-600 hover:underline">My Diet</a>
-                    <a href="log.html" class="font-semibold text-blue-600 hover:underline">View Detailed Log</a>
-                    <a href="index.html" class="cta-button">
-                        Home
-                    </a>
-                 </div>
-             </div>
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-slate-800 hover:opacity-80">YourChart.net</a>
+                <nav class="flex items-center gap-4 sm:gap-6 text-sm sm:text-base font-semibold">
+                    <a href="my-diet.html" class="text-slate-600 hover:text-blue-600">My Diet</a>
+                    <a href="dashboard.html" class="text-slate-600 hover:text-blue-600">Dashboard</a>
+                    <a href="log.html" class="text-slate-600 hover:text-blue-600">Log</a>
+                </nav>
+            </div>
         </header>
+        <!-- === END UPDATED HEADER === -->
+
+        <div class="text-center mb-8">
+             <h1 class="text-3xl md:text-4xl font-bold text-slate-800">My Health Dashboard</h1>
+             <p class="text-slate-500 mt-1">A personal analysis of my biomarker trends and lifestyle plan.</p>
+        </div>
 
         <section class="dashboard-card mb-8">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Profile & Key Metrics</h2>
