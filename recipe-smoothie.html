@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Everyman Smoothie Recipe | YourChart.net</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <style>
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details .summary-icon { transition: transform 0.3s ease-in-out; }
+        details[open] .summary-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8 bg-slate-100">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800">The Everyman Smoothie</h1>
+            <p class="text-lg text-slate-600 mt-2 max-w-2xl mx-auto">My go-to, budget-friendly breakfast for tackling high cholesterol. Nutrient-dense, high in fiber, and actually tastes good.</p>
+        </header>
+
+        <section class="dashboard-card mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <p class="text-sm font-medium text-slate-500">💰 Total Cost</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">$3.64</p>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">🔥 Calories</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">313</p>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">💪 Protein</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">35g</p>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">🌾 Fiber</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">9g</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-card mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">The Recipe</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700 mb-2">Ingredients</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li><span class="font-semibold">1 scoop</span> Isopure Protein Powder</li>
+                        <li><span class="font-semibold">1 tbsp</span> Almond Butter</li>
+                        <li><span class="font-semibold">2 tbsp</span> Greek Yogurt</li>
+                        <li><span class="font-semibold">1 cup</span> Frozen Fruit</li>
+                        <li><span class="font-semibold">4 cups</span> Spinach</li>
+                        <li><span class="font-semibold">1 cup</span> Water</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700 mb-2">Instructions</h3>
+                    <ol class="space-y-2 text-slate-600 list-decimal list-inside">
+                        <li>Combine all ingredients in a blender.</li>
+                        <li>Blend on high for 60 seconds until smooth.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <details class="mb-8">
+            <summary class="dashboard-card cursor-pointer flex justify-between items-center">
+                <span class="text-lg font-semibold text-blue-700">View Detailed Cost & Nutrition Breakdown</span>
+                <svg class="w-6 h-6 text-blue-700 summary-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="dashboard-card mt-2 bg-slate-50 space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700 mb-2">Cost & Nutrition Per Serving</h3>
+                    <p class="text-sm text-slate-600 mb-4">Here’s how each ingredient contributes to the final cost and nutritional value of a single smoothie.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-200">
+                                <tr>
+                                    <th class="p-3 font-semibold text-slate-700">Ingredient</th>
+                                    <th class="p-3 font-semibold text-slate-700 text-right">Cost</th>
+                                    <th class="p-3 font-semibold text-slate-700 text-right">Calories</th>
+                                    <th class="p-3 font-semibold text-slate-700 text-right">Protein (g)</th>
+                                    <th class="p-3 font-semibold text-slate-700 text-right">Fiber (g)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="p-3">almond butter (1 tbsp)</td>
+                                    <td class="p-3 text-right">$0.25</td>
+                                    <td class="p-3 text-right">95</td>
+                                    <td class="p-3 text-right">4</td>
+                                    <td class="p-3 text-right">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Greek Yogurt (2 tbsp)</td>
+                                    <td class="p-3 text-right">$0.20</td>
+                                    <td class="p-3 text-right">18</td>
+                                    <td class="p-3 text-right">3</td>
+                                    <td class="p-3 text-right">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">protein powder (1 scoop)</td>
+                                    <td class="p-3 text-right">$1.49</td>
+                                    <td class="p-3 text-right">100</td>
+                                    <td class="p-3 text-right">25</td>
+                                    <td class="p-3 text-right">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">frozen fruit (1 cup)</td>
+                                    <td class="p-3 text-right">$1.20</td>
+                                    <td class="p-3 text-right">80</td>
+                                    <td class="p-3 text-right">1</td>
+                                    <td class="p-3 text-right">5</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">spinach (4 cups)</td>
+                                    <td class="p-3 text-right">$0.50</td>
+                                    <td class="p-3 text-right">20</td>
+                                    <td class="p-3 text-right">2</td>
+                                    <td class="p-3 text-right">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">water (1 cup)</td>
+                                    <td class="p-3 text-right">$0.00</td>
+                                    <td class="p-3 text-right">0</td>
+                                    <td class="p-3 text-right">0</td>
+                                    <td class="p-3 text-right">0</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="bg-slate-200">
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-800">Total</td>
+                                    <td class="p-3 font-bold text-slate-800 text-right">$3.64</td>
+                                    <td class="p-3 font-bold text-slate-800 text-right">313</td>
+                                    <td class="p-3 font-bold text-slate-800 text-right">35</td>
+                                    <td class="p-3 font-bold text-slate-800 text-right">9</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700 mb-2">Ingredient Sourcing & Bulk Cost</h3>
+                    <p class="text-sm text-slate-600 mb-4">For full transparency, here are the exact products I use and what they cost in bulk. Prices may vary.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-200">
+                                <tr>
+                                    <th class="p-3 font-semibold text-slate-700">Ingredient</th>
+                                    <th class="p-3 font-semibold text-slate-700">Brand/Notes</th>
+                                    <th class="p-3 font-semibold text-slate-700 text-right">Bulk Cost</th>
+                                    <th class="p-3 font-semibold text-slate-700 text-center">Link</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="p-3">almond butter</td>
+                                    <td class="p-3">Trader Joes</td>
+                                    <td class="p-3 text-right">$7.00</td>
+                                    <td class="p-3 text-center"><a href="https://www.traderjoes.com/home/products/pdp/creamy-almond-butter-no-salt-051435" target="_blank" class="text-blue-600 hover:underline">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">greek yogurt</td>
+                                    <td class="p-3">Trader Joes</td>
+                                    <td class="p-3 text-right">$6.00</td>
+                                    <td class="p-3 text-center"><a href="https://www.traderjoes.com/home/products/pdp/greek-nonfat-yogurt-plain-095732" target="_blank" class="text-blue-600 hover:underline">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">protein powder</td>
+                                    <td class="p-3">Isopure (Flavorless)</td>
+                                    <td class="p-3 text-right">$70.00</td>
+                                    <td class="p-3 text-center"><a href="https://www.amazon.com/dp/B002TG3QPO?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1" target="_blank" class="text-blue-600 hover:underline">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">frozen fruit</td>
+                                    <td class="p-3">Trader Joes</td>
+                                    <td class="p-3 text-right">$3.59</td>
+                                    <td class="p-3 text-center"><a href="https://www.nutritionix.com/i/trader-joes/very-cherry-berry-blend/53c917d1eb74f4f450a7b190" target="_blank" class="text-blue-600 hover:underline">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">spinach</td>
+                                    <td class="p-3">Trader Joes</td>
+                                    <td class="p-3 text-right">$3.00</td>
+                                    <td class="p-3 text-center"><a href="https://www.traderjoes.com/home/products/pdp/organic-baby-spinach-032603" target="_blank" class="text-blue-600 hover:underline">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </details>
+        
+        <section class="dashboard-card">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">Why These Ingredients for Heart Health?</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700">Almond Butter</h3>
+                    <p class="text-slate-600">A great source of monounsaturated fats, which help lower LDL ("bad") cholesterol and are packed with Vitamin E.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700">Greek Yogurt & Protein Powder</h3>
+                    <p class="text-slate-600">Provides a high-protein, low-fat base that keeps you full and helps maintain muscle, which is key for overall metabolic health.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-700">Berries & Spinach</h3>
+                    <p class="text-slate-600">Loaded with soluble fiber and antioxidants. Soluble fiber is essential for binding to cholesterol and removing it from the body.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-card mt-12 text-center">
+            <h2 class="text-2xl font-bold text-slate-800">Follow the Journey</h2>
+            <p class="text-slate-600 mt-2 max-w-lg mx-auto">
+                I post daily tips, frugal health finds, and data-driven updates on my journey to lower cholesterol. Follow along on X for the latest!
+            </p>
+            <a href="https://x.com/jyanbrohnson_" target="_blank" class="cta-button mt-4">
+                Follow @jyanbrohnson_
+            </a>
+        </section>
+
+        <footer class="text-center p-4 mt-8 text-sm text-slate-500">
+            <div class="flex justify-center items-center gap-4">
+                <span>© 2025 YourChart.net</span>
+                <span>|</span>
+                <a href="index.html" class="hover:underline">Back to Home</a>
+                <span>|</span>
+                <a href="https://x.com/jyanbrohnson_" target="_blank" title="Follow on X" class="hover:opacity-75">
+                    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
